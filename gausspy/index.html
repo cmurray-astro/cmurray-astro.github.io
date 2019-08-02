@@ -104,61 +104,32 @@
 								<p>  At its core, AGD is a fast, automatic, extremely versatile way of
 									providing initial guesses for fitting Gaussian components to a
 									function of the form <math>f(x) + n(x)</math>, where <math>n(x)</math> is a term
-									modeling possible contributions from noise. 		
+									modeling possible contributions from noise. 	
+									
+									<br>
+									<br>
+									
+									Ideally, if blending of components was not an issue and <math>n(x)=0</math>,
+									the task of fitting Gaussians to a given spectrum would be reduced to
+									find local maxima of <math>f(x)</math>. However, both of these assumptions
+									dramatically fail in practical applications, where blending of lines
+									is an unavoidable issue and noise is intrinsic to the process of data
+									acquisition. In that case, looking for solutions of <math>df(x)/dx = 0</math>
+									is not longer a viable route to find local
+									extrema of <math>f(x)</math>, instead a different approach must be taken.
+
+									AGD uses the fact that a local maximum in <math>f(x)</math> is also a local
+									minimum in the curvature. That is, the algorithm looks for points
+									<math>x^*</math> for which the following conditions are satisfied.
+
+									<ul>
+										<li>The function <math>f(x)</math> has a non-trivial value: <math>f(x^*) > \epsilon_0.</math></li>
+									</ul>
+
 								</p>
 							</section>						
 						
 					</div>						
-
-
-				<!-- Footer -->
-				<!--	<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<!--<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>-->
-							<!--	<h3>Email</h3>
-								<p><a href="#">gausspy dot software at gmail dot com</a></p>
-							</section>-->
-							<!--<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>-->
-						</section>
-					</footer> -->
 
 				<!-- Copyright -->
 					<div id="copyright">
