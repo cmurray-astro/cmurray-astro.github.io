@@ -80,7 +80,6 @@
 									<br>
 									
 									
-									
 									On this page, you can explore motivating use cases for GaussPy, both simple and advanced, before diving into 
 									the code on <a href="https://github.com/cmurray-astro/gausspy">our GitHub repository</a>, 
 									which contains the code itself, and examples for how to use it.
@@ -88,46 +87,7 @@
 								</p>
 									
 								
-							</section>
-						
-							<section class="post">
-<!-- 								<header class="major">
-									<h1>Motivation</h1>
-								</header> -->
-								<header class="major">
-									<h1>AGD</h1>
-									<p>The details of Autonomous Gaussian Decomposition</p>
-								</header>
-								
-								
-								<h2> Basic Concepts </h2>
-								<p>  At its core, AGD is a fast, automatic, extremely versatile way of
-									providing initial guesses for fitting Gaussian components to a
-									function of the form <math>f(x) + n(x)</math>, where <math>n(x)</math> is a term
-									modeling possible contributions from noise. 	
-									
-									<br>
-									<br>
-									
-									Ideally, if blending of components was not an issue and <math>n(x)=0</math>,
-									the task of fitting Gaussians to a given spectrum would be reduced to
-									find local maxima of <math>f(x)</math>. However, both of these assumptions
-									dramatically fail in practical applications, where blending of lines
-									is an unavoidable issue and noise is intrinsic to the process of data
-									acquisition. In that case, looking for solutions of <math>df(x)/dx = 0</math>
-									is not longer a viable route to find local
-									extrema of <math>f(x)</math>, instead a different approach must be taken.
-
-									AGD uses the fact that a local maximum in <math>f(x)</math> is also a local
-									minimum in the curvature. That is, the algorithm looks for points
-									<math>x^*</math> for which the following conditions are satisfied.
-
-									<ul>
-										<li>The function <math>f(x)</math> has a non-trivial value: <math>f(x^*) > \epsilon_0.</math></li>
-									</ul>
-
-								</p>
-							</section>						
+							</section>					
 						
 					</div>						
 
