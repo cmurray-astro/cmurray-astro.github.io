@@ -59,21 +59,25 @@
 									<h2>Motivation</h2>
 									<p>What is GaussPy and why is it awesome?</p>
 								</header>
-								<p> When interpreting data, it is useful to fit models made up of parametrized functions. 
-									Gaussian functions, described simply by three parameters and often physically well-motivated, 
-									provide a convenient basis set of functions for such a model. However, any set of Gaussian 
-									functions is not an orthogonal basis, and therefore any solution implementing them will not be 
-									unique. Furthermore, determining fits to spectra involving more than one Gaussian function is 
-									complex, and the crucial step of guessing the number of functions and their parameters is not 
-									straightforward. Typically, reasonable fits can be determined iteratively and by-eye. However, 
-									for large sets of data, analysis by-eye requires an unreasonable amount of processing time and is unfeasible.
+								<p> Gaussian functions, described simply by three parameters and often physically well-motivated, 
+									provide a convenient basis set of functions for a model. However, a set of Gaussian 
+									functions is not an orthogonal basis, so any solution composed of them will not be 
+									unique. Furthermore, the crucial step of guessing the number of Gaussians and their parameters is not 
+									straightforward. A standard approach is to make subjective, by-eye guesses. However, this approach is not 
+									scalable to increasingly large datasets, not to mention being inherently non-reproducible. 
+									
 									<br>
+									<br>
+									
 									The goal of the GaussPy project is to solve this age-old problem! GaussPy implements
 									the  <a href="https://arxiv.org/abs/1409.2840">Autonomous Gaussian Decomposition</a> algorithm, 
 									which leverages machine-learning-powered regularization and derivative spectroscopy
-									to identify all necesary parameters for initializing a multi-Gaussian fit to data. For more
+									to identify all necesary parameters for initializing a multi-Gaussian fit. For more
 									information about the algorithm and code, please see  <a href="https://gausspy-py3.readthedocs.io/en/latest/">our documentation.</a>
+									
 									<br>
+									<br>
+									
 									On this page, you can explore simple and advanced use cases for GaussPy, before diving into 
 									the code on <a href="https://github.com/cmurray-astro/gausspy">our GitHub repository</a>, 
 									which contains coding examples.
