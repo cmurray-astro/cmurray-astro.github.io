@@ -1,164 +1,400 @@
-<!DOCTYPE HTML>
-<!--
-		Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Dr. Claire E. Murray</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="shortcut icon" href="images/Scylla_Logo_transparent.png" type="image/x-icon" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Claire E. Murray</title>
+  <link rel="shortcut icon" href="images/Scylla_Logo_transparent.png" type="image/x-icon" />
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+    :root {
+      --blue:    #7db8e8;
+      --blue-dk: #3a7fc1;
+      --orange:  #e8936a;
+      --dark:    #0c111a;
+      --card-bg: #131c2b;
+      --text:    #d6e4f0;
+      --muted:   #8da9be;
+      --border:  #1e3048;
+      --white:   #f0f6ff;
+    }
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Dr. Claire E. Murray</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+    html { scroll-behavior: smooth; }
 
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="#one">About Me</a></li>
-								<li><a href="#four">Research Interests</a></li>
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<!--<div class="logo"><span class="image" img="../images/cmurrayweb.jpb"></span></div>-->
-							<h2>Dr. Claire E. Murray</h2>
-							<p>Assistant astronomer, Space Telescope Science Institute</p>
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--orange); text-decoration: underline; }
 
-							<a href="https://ui.adsabs.harvard.edu/#/public-libraries/xMYD72zTSKStQsECKA0Zcw" class="icon fa-edit"> ADS Publications</a>
-							<br>
+    /* ── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2.5rem;
+      height: 3.2rem;
+      background: rgba(12, 17, 26, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
 
-							<a href="http://docs.google.com/gview?url=https://cmurray-astro.github.io/murray_cv.pdf&embedded=true" class="icon fa-graduation-cap"> CV</a>
-							<br>
+    nav .brand {
+      font-size: 0.95rem;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      color: var(--white);
+    }
 
-							<a href="mailto:clairemurray56@gmail.com" class="icon fa-envelope">  e-mail</a>
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
 
-						</div>
-					</section>
+    nav ul a {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
 
-				<!-- Wrapper -->
-					<section id="wrapper">
-						<!-- One -->
-							<section id="one" class="wrapper spotlight style1">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/IMG_7171.JPG" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Welcome!</h2>
-										<p> I am an assistant astronomer at the  <a href="http://www.stsci.edu/">Space Telescope Science Institute</a> (STScI, aka "the Tute") in Baltimore, MD, 
-											where I am a proud member of the <a href = "https://sites.google.com/view/ism-stsci/home">ISM* group</a>.
-											I recieved a B.A. in Physics & Astronomy at <a href="https://www.carleton.edu/">Carleton College</a> in 2011, and a Ph.D.
-											from the <a href="http://www.astro.wisc.edu/">Department of Astronomy</a> at the
-											University of Wisconsin-Madison in 2017.
-<!--<br/>
-<br/>
-I like to think about how star-forming material cycles through the local interstellar medium (ISM) in various ionized, dusty, neutral and molecular phases. I am particularly interested in decoding the multi-dimensional structure of the ISM and the nature of gas flows in galaxies.</p>-->
-									<!--	<a href="#" class="special">Learn more</a>-->
-									</div>
-								</div>
-							</section>
+    nav ul a:hover { color: var(--blue); text-decoration: none; }
 
+    /* ── Hero (merged with About) ─────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 3.2rem 2rem 0;   /* top = nav height */
+    }
 
-						<!-- Four -->
-							<section id="four" class="wrapper alt style1">
-								<div class="inner">
-									<h2 class="major">Research Interests</h2>
-									<p> Galaxy evolution is driven by where, when and how stars form. In particular, the flow of material through the interstellar medium (ISM) -- from diffuse plasma to molecular, star-forming clouds -- is crucial. I use sensitive radio observations of neutral hydrogen (HI) and molecular gas to trace this flow in the Galactic and Magellanic ISM.</p>
-									<section class="features">
-										<article>
-											<a href="#" class="image fit"><img src="images/Scylla_Logo_transparent.png" alt="" /></a>
-											<h3 class="major">Scylla: a multi-headed attack on dust evolution and star formation</h3>
-<p>I am the PI of Scylla: a 500-orbit Hubble Space Telescope (HST) parallel imaging program (Cycles 27-29) to complement the HST Ultraviolet (UV) Legacy library of Young Stars as Essential Standards (ULLYSES) survey. We will: (1) map the extinction curve and dust grain properties at high resolution in a diverse range of interstellar conditions; (2) constrain the multi-dimensional structure of gas in the Large and Small Magellanic Clouds; and (3) measure the comprehensive star formation and chemical enrichment histories of nearby dwarf galaxies.  </p>
-										</article>
+    #hero .bg {
+      position: absolute;
+      inset: 0;
+      background: url('potw2536a.jpg') center 40% / cover no-repeat;
+      filter: brightness(0.45) saturate(1.2);
+    }
 
-										<article>
-											<a href="#" class="image fit"><img src="images/CNM_allsky.png" alt="" /></a>
-											<h3 class="major">The nature and distribution of cold, optically-thick HI</h3>
-<p> Based on a large sample of 21 cm absorption lines, I found that <a href="http://adsabs.harvard.edu/abs/2018arXiv180601300M"> optically-thick HI does not dominate the "dark" gas mass budget in the local ISM </a>, rather it is a combination of intrinsic variations in dust grain emissivity and H2 undetected by standard tracers. Using machine learning techniques, I plan to characterize the nature of cold, optically-thick HI on large scales. Above is an all-Northern sky map of the cold neutral medium, derived from <a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...899...15M/abstract"> the first convolutional neural network applied to diffuse gas in the local ISM.</a>. </p>
-										</article>
+    #hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(12, 17, 26, 0.1)  0%,
+        rgba(12, 17, 26, 0.5)  60%,
+        rgba(12, 17, 26, 1.0) 100%
+      );
+    }
 
-										<article>
-											<a href="https://science.nrao.edu/" class="image fit"><img src="images/vla2.jpg" alt="" /></a>
-											<!--<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>-->
-											<h3 class="major">The temperature of the ISM</h3>
-<p> I am a leading member of  <a href="http://adsabs.harvard.edu/abs/2015ApJ...804...89M"> "21-cm Spectral Line Observations of Neutral Gas with the VLA"</a>, the largest, most sensitive survey of Galactic HI absorption at the Karl G. Jansky Very Large Array (VLA). To detect the cold and warm neutral ISM simultaneously, I developed <a href="https://library.nrao.edu/public/memos/evla/EVLAM_171.pdf">novel</a> <a href="https://library.nrao.edu/public/memos/evla/EVLAM_176.pdf">calibration</a> <a href="https://library.nrao.edu/public/memos/evla/EVLAM_197.pdf">strategies</a> for improving 21cm sensitivity.</p>
-<!--											<a href="#" class="special">Learn more</a>-->
-										</article>
-										<article>
-											<a href="http://adsabs.harvard.edu/abs/2018ApJS..234....2P" class="image fit"><img src="images/galfa_new.png" alt="" /></a>
-											<h3 class="major">Unexpectedly warm neutral medium</h3>
-<p>I detected absorption by the warm neutral medium (WNM) with <a href="http://adsabs.harvard.edu/abs/2014ApJ...781L..41M"> unexpectedly high excitation temperature </a>, indicating that Lyman-alpha scattering is important for HI excitation, with consequences for disentangling astrophysical effects from HI signals throughout cosmic time.</p>
+    #hero .content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.4rem;
+      align-items: center;
+      max-width: 860px;
+      width: 100%;
+      padding: 2rem 0 3rem;
+    }
 
-										</article>
-										<article>
-											<a href="http://adsabs.harvard.edu/abs/2015AJ....149..138L" class="image fit"><img src="images/agd_example.png" alt="" /></a>
-											<h3 class="major">Autonomous Gaussian Decomposition</h3>
-<p> I helped to develop <a href="http://adsabs.harvard.edu/abs/2015AJ....149..138L"> an automatic method to decompose spectra into Gaussian functions</a> using derivative spectroscopy and supervised machine learning. The code, <a href = "https://github.com/cmurray-astro/gausspy">GaussPy</a>, is written in Python and is publicly available!</p>
+    #hero img {
+      width: 100%;
+      border-radius: 50%;
+      border: 3px solid rgba(125, 184, 232, 0.35);
+      filter: grayscale(15%);
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: 40% 42%;
+    }
 
-										</article>
-										<article>
-											<a href="http://adsabs.harvard.edu/abs/2017ApJ...837...55M" class="image fit"><img src="images/obssims3.png" alt="" /></a>
-											<h3 class="major">Connecting observations with simulations</h3>
-<p> Using AGD, I conducted <a href="http://adsabs.harvard.edu/abs/2017ApJ...837...55M"> detailed comparisons between 21-SPONGE and 3D numerical simulations</a>, demonstrating how and where 21cm spectra recover "true" ISM conditions.</p>
-										</article>
+    #hero .text .eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.3rem;
+    }
 
-										<article>
-											<a href="http://adsabs.harvard.edu/abs/2015ApJ...808...41M" class="image fit"><img src="images/msmolecules.png" alt="" /></a>
-											<h3 class="major">Mysterious Magellanic Molecules</h3>
-<p> I detected the <a href="http://adsabs.harvard.edu/abs/2015ApJ...808...41M"> first evidence for absorption by HCO+ in the Magellanic System </a>-- a low-metallicity, dynamically complex neighbor to the Milky Way providing a important laboratory for molecule formation at high redshift.</p>
-										</article>
+    #hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
 
-									<footer class="align-center">
-										</article>
+    #hero .institute {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.9rem;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
 
-									</section>
-								<!--	<ul class="actions">
-										<li><a href="#" class="button">Browse All</a></li>
-									</ul>-->
-								</div>
-							</section>
+    #hero .bio {
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+      max-width: 520px;
+    }
 
-					</section>
-		<!-- Footer -->
-			<section id="footer">
-				<div class="inner">
-						<p>&copy; Claire E. Murray</p>
-						<p>Design: <a href="https://html5up.net/">HTML5 UP</a></p>
-						<p>Image: NGC 5189; NASA/STScI</a></p>
-						<p>This material is based upon work supported by the National Science Foundation under Grant No. AST-1801471</p>
-						<p>Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
-				</div>
-			</footer>
+    #hero .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
 
-			</div>
+    #hero .links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--blue-dk);
+      border-radius: 2rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      color: var(--blue);
+      background: rgba(58, 127, 193, 0.1);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    #hero .links a:hover {
+      background: rgba(58, 127, 193, 0.25);
+      border-color: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+    }
 
-	</body>
+    /* ── Shared section styles ────────────────────────────────── */
+    section.content-section { padding: 2.6rem 2rem; }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Research ─────────────────────────────────────────────── */
+    #research { background: rgba(255,255,255,0.015); }
+
+    .research-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .research-item:first-child { padding-top: 0; }
+    .research-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .research-item img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+
+    .research-item .tag {
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.55rem;
+      border-radius: 1rem;
+      background: rgba(58, 127, 193, 0.15);
+      color: var(--blue);
+      border: 1px solid rgba(58, 127, 193, 0.3);
+    }
+
+    .research-item h3 {
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+      line-height: 1.4;
+      font-weight: normal;
+    }
+
+    .research-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Contact ──────────────────────────────────────────────── */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-links a {
+      color: var(--text);
+      padding: 0 0.7rem;
+      border-right: 1px solid var(--border);
+      line-height: 1;
+    }
+
+    .contact-links a:first-child { padding-left: 0; }
+    .contact-links a:last-child { border-right: none; }
+    .contact-links a:hover { color: var(--blue); text-decoration: none; }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      text-align: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 660px) {
+      nav ul { display: none; }
+
+      #hero .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.4rem;
+      }
+
+      #hero img { width: 120px; margin: 0 auto; }
+      #hero .links { justify-content: center; }
+      #hero .bio { margin: 0 auto 1.4rem; }
+
+      .research-item { grid-template-columns: 1fr; text-align: center; }
+      .research-item img { width: 160px; margin: 0 auto 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <span class="brand">Dr. Claire E. Murray</span>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero + Bio (merged) ── -->
+  <section id="hero">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <img src="images/IMG_7171.JPG" alt="Dr. Claire E. Murray" />
+      <div class="text">
+        <p class="eyebrow">Associate Astronomer</p>
+        <h1>Dr. Claire E. Murray</h1>
+        <p class="institute">
+          <a href="http://www.stsci.edu/" target="_blank">Space Telescope Science Institute</a>
+          &nbsp;·&nbsp;
+          <a href="https://sites.google.com/view/ism-stsci/home" target="_blank">ISM* Group</a>
+        </p>
+        <p class="bio">
+          I study the interstellar medium (ISM) at the onset of star formation. By combining
+          spectroscopic and photometric surveys spanning radio through ultraviolet wavelengths,
+          I map the 3D structure, kinematics, and physical properties of the diffuse ISM in the
+          Milky Way and nearby galaxies.
+        </p>
+        <div class="links">
+          <a href="https://ui.adsabs.harvard.edu/#/public-libraries/xMYD72zTSKStQsECKA0Zcw" target="_blank">ADS Publications</a>
+          <a href="http://docs.google.com/gview?url=https://cmurray-astro.github.io/murray_cv.pdf&embedded=true" target="_blank">CV</a>
+          <a href="mailto:clairemurray56@gmail.com">Email</a>
+          <a href="https://github.com/cmurray-astro" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research ── -->
+  <section id="research" class="content-section">
+    <div class="container">
+      <h2>Research Interests</h2>
+      <div class="cards">
+
+        <div class="research-item">
+          <img src="images/Scylla_Logo_transparent.png" alt="Scylla survey logo" />
+          <div>
+            <span class="tag">HST · JWST · Roman</span>
+            <h3>Unveiling the ISM at high resolution via resolved stellar photometry</h3>
+            <p>Using deep photometry of millions of resolved stars from space-based surveys of nearby galaxies, spanning the infrared (IR) through UV, my group <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260506925L/abstract" target="_blank">resolves the ~parsec-scale structure of the ISM via its embedded dust content</a>, completely independently of the systematics associated with standard emission tracers. <a href="https://ui.adsabs.harvard.edu/abs/2024ApJS..275....5M/abstract" target="_blank">I am the PI of Scylla: a 350-orbit panchromatic Hubble Space Telescope imaging survey of the Magellanic Clouds</a>, and a leading member of ongoing and upcoming Local Group surveys with HST, JWST and Roman. My goals are to: (1) map dust extinction and grain properties at high resolution across diverse interstellar conditions; (2) constrain the multi-dimensional structure of dust in the Large and Small Magellanic Clouds; and (3) measure the comprehensive star formation and chemical enrichment histories of nearby galaxies.</p>
+          </div>
+        </div>
+
+        <div class="research-item">
+          <img src="images/cnn_cnm.png" alt="CNN cold neutral medium map" />
+          <div>
+            <span class="tag">VLA · HI · Machine Learning</span>
+            <h3>Unraveling the phases of diffuse gas in the Milky Way</h3>
+            <p>I build advanced algorithms to extract the thermal properties of the diffuse, neutral ISM at the onset of star formation. For my PhD, I led <a href="https://ui.adsabs.harvard.edu/abs/2018ApJS..238...14M/abstract" target="_blank">21-SPONGE, the largest, most sensitive survey of Galactic HI absorption at the Karl G. Jansky Very Large Array (VLA)</a>. I detected <a href="https://ui.adsabs.harvard.edu/abs/2014ApJ...781L..41M/abstract" 
+  target="_blank">absorption by the warm neutral medium (WNM) with an unexpectedly high temperature</a>, showed that <a href="https://ui.adsabs.harvard.edu/abs/2018ApJ...862..131M/abstract" 
+  target="_blank">optically-thick HI does not dominate the "dark" gas in the local ISM</a>, and found that <a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...899...15M/abstract" 
+  target="_blank">the dust to gas ratio varies significantly between warm and cold neutral media</a>. I am interested in applying machine learning methods to further resolve the 3D+ structure of the local ISM, combining this work with high-resolution 3D dust maps.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact" class="content-section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:clairemurray56@gmail.com">clairemurray56@gmail.com</a>
+        <a href="http://www.stsci.edu/" target="_blank">Space Telescope Science Institute</a>
+        <a href="https://sites.google.com/view/ism-stsci/home" target="_blank">ISM* Group</a>
+        <a href="https://ui.adsabs.harvard.edu/#/public-libraries/xMYD72zTSKStQsECKA0Zcw" target="_blank">ADS Publications</a>
+        <a href="http://docs.google.com/gview?url=https://cmurray-astro.github.io/murray_cv.pdf&embedded=true" target="_blank">CV</a>
+        <a href="https://github.com/cmurray-astro" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>&copy; Claire E. Murray &nbsp;·&nbsp; Space Telescope Science Institute</p>
+    <p>Background: NGC 3603 · NASA/ESA/Hubble &nbsp;·&nbsp;
+      NSF Grant AST-1801471</p>
+  </footer>
+
+</body>
 </html>
